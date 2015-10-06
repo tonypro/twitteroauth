@@ -350,7 +350,7 @@ class TwitterOAuth extends Config
         /* Curl settings */
         $options = [
             // CURLOPT_VERBOSE => true,
-            CURLOPT_CAINFO => 'cacert.pem',
+            CURLOPT_CAINFO => is_file(__DIR__ . DIRECTORY_SEPARATOR . 'cacert.pem') ? __DIR__ . DIRECTORY_SEPARATOR . 'cacert.pem' : 'cacert.pem',
             CURLOPT_CONNECTTIMEOUT => $this->connectionTimeout,
             CURLOPT_HEADER => true,
             CURLOPT_HTTPHEADER => ['Accept: application/json', $authorization, 'Expect:'],
